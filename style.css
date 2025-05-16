@@ -1,0 +1,130 @@
+#social_media {
+    text-align: left;
+    letter-spacing: 17px;
+    word-spacing: 10px;
+}
+
+
+
+#youtube_img,
+#facebook_img,
+#instagram_img,
+#twitter_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+    /*daireye duzgun sekilde oturması*/
+
+
+
+}
+
+.social_link {
+    display: inline-block;
+    /* Resmin link etrafında yatayda hizalanmasını sağlar */
+    margin: 0 10px;
+    /* Simgeler arasına mesafe ekler */
+}
+
+#main_icon {
+    width: 150px;
+    margin-right: 10px;
+
+}
+
+.gender {
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+    word-spacing: 150px;
+
+}
+
+#main_nav {
+    margin: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#gender_list {
+    display: flex;
+    gap: 125px;
+    margin-top: 110px;
+}
+
+.background_top {
+    height: 45px;
+
+
+
+
+}
+
+#sales_pict_id {
+    width: 100%;
+    height: 500px;
+
+}
+
+#mycart_ımg {
+    width: 70px;
+    height: 60px;
+    margin-top: 110px;
+    text-align: center;
+}
+
+#most_sales {
+    height: 900px;
+}
+
+#most_sales_man {
+    height: 357px;
+
+}
+
+#most_sales_woman {
+    height: 357px;
+
+}
+
+#most_sales_kid {
+    height: 357px;
+
+}
+
+.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+}
+
+#woman_shoes_page {
+    width: 100%;
+    height: 100%;
+}
+
+.desc {
+    text-align: center;
+}
+
+.desc_women_shoe {
+    text-align: center;
+}
+
+.desc_man_shoe {
+    text-align: center;
+}
+
+.quantity-control {
+    text-align: center;
+}
+
+.desc_kids_shoe {
+    text-align: center;
+}
+
+.quantity-display {
+    display: inline;
+}

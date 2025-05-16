@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="favicon/favicon.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WalkTrend | KIDS </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2 style="text-align: center; color: green;">KIDS SHOES</h2>
+
+    <img title="My Cart" id="mycart_ımg" src="picture/mycart_ımg.jpg" alt="mycart_ımg">
+    <p style="margin-left: 30px;" id="cart-total">₺0</p> 
+
+    <hr>
+
+
+    <div id="kids_shoes_page">
+
+        <div class="gallery">
+            
+                <img src="kids_shoe_page_pic/kids_shoe_page_pic1.png" alt="kids_shoe_page_pic" width="300" height="250">
+           
+
+
+            <div class="desc_kids_shoe">AdidasK1 <br> →1400₺
+            </div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+        <div class="gallery">
+            
+                <img src="kids_shoe_page_pic/kids_shoe_page_pic2.png" alt="kids_shoe_page_pic2" width="300"
+                    height="250">
+           
+
+
+            <div class="desc_kids_shoe">AdidasK2 <br> →1350₺
+            </div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+        <div class="gallery">
+            
+                <img src="kids_shoe_page_pic/kids_shoe_page_pic3.png" alt="kids_shoe_page_pic3" width="300"
+                    height="250">
+           
+
+
+            <div class="desc_kids_shoe">AdidasK3 <br> →1000₺
+            </div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+        <div class="gallery">
+            
+                <img src="kids_shoe_page_pic/kids_shoe_page_pic4.png" alt="kids_shoe_page_pic4" width="300"
+                    height="250">
+            
+
+
+            <div class="desc_kids_shoe">AdidasK4 <br>→999,9₺
+            </div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+        <div class="gallery">
+            
+                <img src="kids_shoe_page_pic/kids_shoe_page_pic5.png" alt="kids_shoe_page_pic5" width="300"
+                    height="250">
+            
+
+
+            <div class="desc_kids_shoe">AdidasK5 <br>→849,9₺
+            </div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+        <div class="gallery">
+            
+                <img src="kids_shoe_page_pic/kids_shoe_page_pic6.png" alt="kids_shoe_page_pic6" width="300"
+                    height="250">
+            
+
+
+            <div class="desc_kids_shoe">AdidasK6 <br>→950₺
+            </div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+        <div class="gallery">
+            
+                <img src="kids_shoe_page_pic/kids_shoe_page_pic7.png" alt="kids_shoe_page_pic7" width="300"
+                    height="250">
+           
+
+
+            <div class="desc_kids_shoe">AdidasK7 <br> →1999,9₺
+
+            </div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+        <div class="gallery">
+           
+                <img src="kids_shoe_page_pic/kids_shoe_page_pic8.png" alt="kids_shoe_page_pic8" width="300"
+                    height="250">
+            
+
+
+            <div class="desc_kids_shoe">AdidasK8 <br>→999,9₺
+            </div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <script>
+        const cartTotalDisplay = document.getElementById("cart-total");
+        const allShoes = document.querySelectorAll(".gallery");
+        let totalCost = 0;
+
+        allShoes.forEach((shoe) => {
+            const decrementButton = shoe.querySelector(".decrement");
+            const incrementButton = shoe.querySelector(".increment");
+            const quantityDisplay = shoe.querySelector(".quantity-display");
+            const descText = shoe.querySelector(".desc_kids_shoe").textContent;
+            const price = parseFloat(descText.split('→')[1].replace(',', '.'));
+
+            let quantity = 0;
+
+            let shoeName = descText.split(" ")[0];
+            decrementButton.addEventListener("click", function () {
+                if (quantity > 0) {
+                    quantity--;
+                    quantityDisplay.textContent = `Quantity: ${quantity}`;
+                    updateCartTotal(price, -1);
+                    alert(`Removed from cart: ₺${price} | Total: ₺${totalCost.toFixed(2)}`);
+                } else {
+                    alert('You cannot remove while quantity is 0 ');
+                }
+            });
+
+            incrementButton.addEventListener("click", function () {
+                quantity++;
+                quantityDisplay.textContent = `Quantity: ${quantity}`;
+                updateCartTotal(price, 1);
+                alert(`Added to cart: ₺${price} | Total: ₺${totalCost.toFixed(2)} | ${shoeName}`);
+            });
+
+            function updateCartTotal(price, change) {
+                totalCost += price * change;
+                cartTotalDisplay.textContent = `₺${totalCost.toFixed(2)}`;
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

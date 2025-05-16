@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="favicon/favicon.jpg" type="image/x-icon">
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WalkTrend | WOMAN </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2 style="text-align: center; color: green;">WOMAN SHOES</h2>
+    <img title="My Cart" id="mycart_ımg" src="picture/mycart_ımg.jpg" alt="mycart_ımg">
+    <p style="margin-left: 30px;" id="cart-total">₺0</p>
+    <hr>
+    <div id="woman_shoes_page">
+        <div class="gallery">
+            <img src="women_shoe_page_pic/woman_shoe1_.png" alt="woman_shoe1_page" width="300"
+                    height="250">
+            <div class="desc_women_shoe">AdidasW1 <br>→800₺</div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <img src="women_shoe_page_pic/woman_shoe2_.png" alt="woman_shoe2_page" width="300"
+                    height="250">
+            <div class="desc_women_shoe">AdidasW2 <br>→1499₺</div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+           <img src="women_shoe_page_pic/woman_shoe3_.png" alt="woman_shoe3_page" width="300"
+                    height="250">
+            <div class="desc_women_shoe">AdidasW3 <br>→1499,9₺</div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <img src="women_shoe_page_pic/woman_shoe4_.png" alt="woman_shoe4_page" width="300"
+                    height="250">
+            <div class="desc_women_shoe">AdidasW4 <br>→799,9₺</div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <img src="women_shoe_page_pic/woman_shoe5_.png" alt="woman_shoe5_page" width="300"
+                    height="250">
+            <div class="desc_women_shoe">AdidasW5 <br>→1399,9₺</div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            ><img src="women_shoe_page_pic/woman_shoe6_.png" alt="woman_shoe6_page" width="300"
+                    height="250">
+            <div class="desc_women_shoe">AdidasW6 <br>→2199,9₺</div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            ><img src="women_shoe_page_pic/woman_shoe7_.png" alt="woman_shoe7_page" width="300"
+                    height="250">
+            <div class="desc_women_shoe">AdidasW7 <br>→1099,9₺</div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            
+                <img src="women_shoe_page_pic/woman_shoe8_.png" alt="woman_shoe8_page" width="300"height="250">
+
+            <div class="desc_women_shoe">AdidasW8 <br>→799,9₺</div>
+            <div class="quantity-control">
+                <button class="decrement">-</button>
+                <p class="quantity-display">Quantity: 0</p>
+                <button class="increment">+</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const cartTotalDisplay = document.getElementById("cart-total");
+        const allShoes = document.querySelectorAll(".gallery");
+        let totalCost = 0;
+
+        allShoes.forEach((shoe) => {
+            const decrementButton = shoe.querySelector(".decrement");
+            const incrementButton = shoe.querySelector(".increment");
+            const quantityDisplay = shoe.querySelector(".quantity-display");
+            const descText = shoe.querySelector(".desc_women_shoe").textContent;
+            const price = parseFloat(descText.split('→')[1].replace(',', '.'));
+
+            let quantity = 0;
+
+            let shoeName = descText.split(" ")[0];
+            decrementButton.addEventListener("click", function () {
+                if (quantity > 0) {
+                    quantity--;
+                    quantityDisplay.textContent = `Quantity: ${quantity}`;
+                    updateCartTotal(price, -1);
+                    alert(`Removed from cart: ₺${price} | Total: ₺${totalCost.toFixed(2)}`);
+                } else {
+                    alert('You cannot remove while quantity is 0 ');
+                }
+            });
+
+            incrementButton.addEventListener("click", function () {
+                quantity++;
+                quantityDisplay.textContent = `Quantity: ${quantity}`;
+                updateCartTotal(price, 1);
+                alert(`Added to cart: ₺${price} | Total: ₺${totalCost.toFixed(2)} | ${shoeName}`);
+            });
+
+            function updateCartTotal(price, change) {
+                totalCost += price * change;
+                cartTotalDisplay.textContent = `₺${totalCost.toFixed(2)}`;
+            }
+        });
+
+    </script>
+</body>
+
+</html>
